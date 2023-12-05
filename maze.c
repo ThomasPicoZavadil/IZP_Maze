@@ -44,13 +44,7 @@ Map *readfile(char *filename)
 
     for (int i = 0; i < map->rows * map->cols; i++)
     {
-        if (fscanf(file, "%hhu", &map->cells[i]) != 1)
-        {
-            fclose(file);
-            free(map->cells);
-            free(map);
-            exit(1);
-        }
+        fscanf(file, "%hhu", &map->cells[i]);
     }
 
     fclose(file);
